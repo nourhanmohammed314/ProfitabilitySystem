@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}
+Dashboard
+{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+{% block content %}
+<section class="hero">
+    <h1>Welcome to Product Profitability System</h1>
+    <p>Analyze product performance, calculate costs, determine profitability, and make better business decisions.</p>
+    <div class="buttons">
+        <a href="/analyze" class="firstbtn">Analyze Product</a>
+        <a href="/products" class="secondbtn">View Products</a>
+    </div>
+</section>
+<section class="cards">
+    <div class="card">
+        <h2>Revenue Analysis</h2>
+        <p>Calculate total revenue for any selected product.</p>
+    </div>
+
+    <div class="card">
+        <h2>Cost Analysis</h2>
+        <p>Analyze fixed and variable costs accurately.</p>
+    </div>
+    <div class="card">
+        <h2>Profitability Report</h2>
+        <p>View profit, break-even point, margin of safety and profitability status.</p>
+    </div>
+</section>
+{% endblock %}

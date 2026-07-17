@@ -1,0 +1,66 @@
+.analyze{
+    background-color: white;
+    width: min(600px, 100%);
+    margin: 40px auto;
+    padding: 40px;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+.analyze h1{
+    text-align: center;
+    margin-bottom: 15px;
+    color: rgb(55, 55, 213);
+}
+.analyze p{
+    text-align: center;
+    color: rgb(100, 100, 100);
+    margin-bottom: 30px;
+}
+.analyze form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.analyze input{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid rgb(210, 210, 210);
+    border-radius: 8px;
+}
+.date{
+    display: flex;
+    gap: 20px;
+}
+.date div{
+    flex: 1;
+}
+.analyze button{
+    width: 100%;
+    margin-top: 10px;
+}
+button:disabled{
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+.error{
+    background-color: rgb(255,230,230);
+    color: crimson;
+    border: 1px solid crimson;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+@media (max-width:768px){
+    .analyze{
+        padding:25px;
+    }
+    .date{
+        flex-direction: column;
+        gap:15px;
+    }
+    .button button{
+        width: 100%;
+    }
+}

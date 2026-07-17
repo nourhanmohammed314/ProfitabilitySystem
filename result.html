@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}
+Result
+{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
+{% endblock %}
+{% block content %}
+<section class="result">
+    <h1>Profitability Report</h1>
+    <p>Analysis results for the selected product.</p>
+    <div class="productName">
+        <h2>Product: {{ result.name }}</h2>
+    </div>
+    <div class="cards">
+        <div class="card">
+            <h3><i class="fa-solid fa-sack-dollar"></i> Revenue</h3>
+            <p>{{ result.revenue|money }}</p>
+        </div>
+        <div class="card">
+            <h3><i class="fa-solid fa-coins"></i> Total Cost</h3>
+            <p>{{ result.totalCost|money }}</p>
+        </div>
+        <div class="card">
+            <h3><i class="fa-solid fa-chart-line"></i> Profit</h3>
+            <p>{{ result.profit|money }}</p>
+        </div>
+        <div class="card">
+            <h3><i class="fa-solid fa-bullseye"></i> Break-even Point</h3>
+            <p>{{ result.breakEven|money }}</p>
+        </div>
+        <div class="card">
+            <h3><i class="fa-solid fa-shield-halved"></i> Margin of Safety</h3>
+            <p>{{ result.margin|money }}%</p>
+        </div>
+        <div class="card">
+            <h3><i class="fa-solid fa-circle-check"></i> Status</h3>
+            <p class="status">
+                <span class="status-dot {{ result.status|lower }}"></span>
+                {{ result.status }}
+            </p>
+        </div>
+    </div>
+    <div class="button">
+        <a href="/analyze" class="firstbtn">Analyze Another Product</a>
+    </div>
+</section>
+{% endblock %}

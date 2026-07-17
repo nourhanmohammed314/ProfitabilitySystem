@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}
+Analyze Product
+{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/analyze.css')}}">
+{% endblock %}
+{% block content %}
+<section class="analyze">
+    <h1>Analyze Product</h1>
+    <p>Enter product information to analyze profitability.</p>
+    {% if error %}
+    <div class="error">
+        {{ error }}
+    </div>
+    {% endif %}
+    <p id="jsError" class="error" style="display: none;"></p>
+    <form method="post">
+        <label for="product">Product ID</label>
+        <input type="number" placeholder="Enter Product ID" id="product" name="productId" required min="1" step="1">
+        <div class="date">
+            <div>
+                <label for="SMonth">Start Month</label>
+                <input type="number" placeholder="Month" id="SMonth" name="startMonth" min="1" max="12" step="1" required>
+            </div>
+            <div>
+                <label for="SYear">Start Year</label>
+                <input type="number" placeholder="Year" id="SYear" name="startYear" min="2000" step="1" required>
+            </div>
+        </div>
+        <div class="date">
+            <div>
+                <label for="EMonth">End Month</label>
+                <input type="number" placeholder="Month" id="EMonth" name="endMonth" min="1" max="12" step="1" required>
+            </div>
+            <div>
+                <label for="EYear">End Year</label>
+                <input type="number" placeholder="Year" id="EYear" name="endYear" min="2000" step="1" required>
+            </div>
+        </div>
+        <div class="button">
+            <button type="submit" class="firstbtn">Analyze Product</button>
+        </div>
+    </form>
+</section>
+{% endblock %}
+{% block extra_js %}
+<script src="{{ url_for('static', filename='JS/analyze.js') }}"></script>
+{% endblock %}

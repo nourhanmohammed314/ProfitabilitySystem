@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}
+Products
+{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/products.css') }}">
+{% endblock %}
+{% block content %}
+<section class="products">
+    <h1>Available Products</h1>
+    <p>Search for a product to find its ID.</p>
+    <input type="text" id="search" placeholder="Search by product name">
+    <p id="noResult" class="noResult" style="display: none;">No matching products found.</p>
+    <div class="tableContainer" id="tableContainer">
+        <table>
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                </tr>
+            </thead>
+            <tbody id="productsTable">
+                {% for product in products %}
+                <tr>
+                    <td>{{ product.id }}</td>
+                    <td>{{ product.name }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}
+{% block extra_js %}
+<script src="{{ url_for('static', filename='JS/products.js') }}"></script>
+{% endblock %}
